@@ -1,12 +1,10 @@
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home/Home";
 import "./App.css";
+import Router from "./routers/index";
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
-      <Home />
+      <Router />
     </div>
   );
 }

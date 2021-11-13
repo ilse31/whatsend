@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import iconApps from '../assets/img/Group 2.png'
 import './module.css'
 const Navbar = () =>
@@ -54,16 +55,28 @@ const Navbar = () =>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <a className="nav-link item-navbar" href="/">HOME</a>
+                                <NavLink className="nav-link item-navbar" to='/' >HOME</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link item-navbar" href="/">MESSAGE</a>
+                            <li className="nav-item dropdown item-navbar">
+                                <a className="nav-link dropdown-toggle" href="?" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    MESSAGE
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><NavLink className="dropdown-item" to='/personal-message' >Personal Message</NavLink></li>
+                                    <li><NavLink className="dropdown-item" to='/broadcast' >Broadcast Message</NavLink></li>
+                                </ul>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link item-navbar" href="/">HISTORY</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link item-navbar" href="/">PROFILE</a>
+                            <li className="nav-item dropdown item-navbar">
+                                <a className="nav-link dropdown-toggle" href="?" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ACCOUNT
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a className="dropdown-item" href="?">Ilham Prasetya</a></li>
+                                    <li><a className="dropdown-item" href="?">Log Out</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
