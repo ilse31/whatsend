@@ -1,0 +1,41 @@
+.title-apps {
+  font-size: 96px;
+  font-weight: 200;
+}
+.login-button {
+  margin-left: 4em;
+  width: 400px;
+}
+.icon-login {
+  width: 30px;
+}
+
+.btn-outline-success:hover {
+  background-color: white !important;
+}
+/* Laptop */
+@media only screen and (max-width: 1280px) {
+  .title-apps {
+    font-size: 90px;
+    font-weight: 200;
+  }
+  .icon-login {
+    width: 20px;
+  }
+}
+/* HP */
+@media only screen and (max-width: 844px) {
+  .title-apps {
+    margin-left: 20px;
+    font-size: 60px;
+    font-weight: 100;
+  }
+  .login-button {
+    margin-left: 10px;
+    width: 350px;
+  }
+  .banner-login {
+    width: 370px;
+    margin-bottom: 80px;
+  }
+}

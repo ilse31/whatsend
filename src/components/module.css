@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+.nav-icon {
+  width: 50px;
+}
+
+.item-navbar {
+  margin-right: 3em;
+}
+
+@media only screen and (max-width: 844px) {
+  .nav-icon {
+    width: 50px;
+  }
+  .fixed-on-bottom {
+    position: fixed;
+    bottom: 0 !important;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,57 @@
+.home {
+  width: 100%;
+}
+.home-banner-title {
+  width: 20em;
+  font-size: 36px;
+  font-weight: 300;
+}
+.banner-home {
+  width: 35em;
+  margin-left: 20em;
+}
+.subtitle-banner {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.learn-button {
+  width: 192px;
+}
+/* Laptop */
+@media only screen and (max-width: 1280px) {
+  .home-banner-title {
+    width: 20em;
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .banner-home {
+    width: 35em;
+    margin-left: 10em;
+  }
+}
+/* HP */
+@media only screen and (max-width: 844px) {
+  .home-banner-title {
+    margin-left: 20px;
+    font-size: 26px;
+    width: 15em;
+    font-weight: 300;
+  }
+  .subtitle-banner {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: 200;
+  }
+  .right-banner {
+    justify-content: center;
+  }
+  .learn-button {
+    margin-left: 80px;
+  }
+  .banner-home {
+    margin-left: 0;
+    width: 370px;
+    margin-bottom: 80px;
+  }
+}
