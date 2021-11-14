@@ -15,12 +15,12 @@ const Navbar = () =>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <a href="/personal-message" className="nav-link">
                             <i className="bi bi-chat-left-text-fill"></i>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <a href="/broadcast" className="nav-link">
                             <i className="bi bi-broadcast"></i>
                         </a>
                     </li>

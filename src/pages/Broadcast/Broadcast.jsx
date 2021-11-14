@@ -4,7 +4,7 @@ const Broadcast = () =>
 {
     return (
         <div>
-            <button>PPP</button>
+            <button>Broadcast page</button>
         </div>
     )
 }
