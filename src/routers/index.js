@@ -6,7 +6,6 @@ import History from "../pages/History/History";
 import Home from "../pages/Home/Home";
 import PersonalMessage from "../pages/Message/PersonalMessage";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
-import { PageConstruc } from "../pages/pageConstruction/PageConstruc";
 import PhoneBook from "../pages/PhoneBook/PhoneBook";
 import Profile from "../pages/Profile/Profile";
 const Router = () => {
