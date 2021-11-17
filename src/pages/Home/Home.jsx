@@ -4,7 +4,7 @@ import bannerHome from '../../assets/img/chat-animate.svg'
 const Home = () =>
 {
     return (
-        <div className='container home'>
+        <div className='container home p-3'>
             <div className="row vh-100 align-items-center">
                 <div className="col-12 col-md-4">
                     <div className='banner'>

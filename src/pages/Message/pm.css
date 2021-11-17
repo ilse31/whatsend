@@ -1,0 +1,21 @@
+.phone-book {
+  width: 25px;
+}
+.input-telp {
+  border: 1px solid #00d7b9;
+  border-radius: 5px;
+  width: 20em;
+}
+.input-telp:focus {
+  outline: none;
+  box-shadow: none;
+}
+.phone {
+  display: inline-block;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 844px) {
+  .phonebook {
+    display: flex;
+  }
+}

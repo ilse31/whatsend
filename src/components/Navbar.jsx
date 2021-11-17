@@ -25,14 +25,14 @@ const Navbar = () =>
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <NavLink to="/history" className="nav-link">
                             <i className="bi bi-clock-history"></i>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <NavLink to='/' className="nav-link">
                             <i className="bi bi-person-circle"></i>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
                         <a href="/" className="nav-link">
@@ -67,7 +67,7 @@ const Navbar = () =>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link item-navbar" href="/">HISTORY</a>
+                                <NavLink className="nav-link item-navbar" to='/history'>HISTORY</NavLink>
                             </li>
                             <li className="nav-item dropdown item-navbar">
                                 <a className="nav-link dropdown-toggle" href="?" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
