@@ -1,0 +1,46 @@
+.profile {
+  margin-left: 33em;
+  margin-bottom: 30em;
+}
+.title-name {
+  margin-left: 40px;
+}
+.profile-button {
+  position: relative;
+  margin-right: 33em !important;
+}
+.button-profiles {
+  width: 240px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .profile {
+    margin-left: 28em;
+    margin-bottom: 20em;
+  }
+  .title-name {
+    margin-left: 40px;
+  }
+  .profile-button {
+    position: relative;
+    margin-right: 27em !important;
+  }
+  .button-profiles {
+    width: 240px;
+  }
+}
+
+@media only screen and (max-width: 844px) {
+  .profile {
+    margin-left: 4em;
+    margin-bottom: 20em !important;
+  }
+  .profile-button {
+    position: relative;
+    padding-right: 30px;
+    margin-right: 6em !important;
+  }
+  .button-profiles {
+    width: 240px;
+  }
+}

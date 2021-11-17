@@ -8,6 +8,7 @@ import PersonalMessage from "../pages/Message/PersonalMessage";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
 import { PageConstruc } from "../pages/pageConstruction/PageConstruc";
 import PhoneBook from "../pages/PhoneBook/PhoneBook";
+import Profile from "../pages/Profile/Profile";
 const Router = () => {
   return (
     <Switch>
@@ -33,7 +34,7 @@ const Router = () => {
       </Route>
       <Route exact path='/account'>
         <Navbar />
-        <PageConstruc />
+        <Profile />
       </Route>
       <Route path='*'>
         <NotFoundPage />
