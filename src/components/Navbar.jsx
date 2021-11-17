@@ -30,14 +30,14 @@ const Navbar = () =>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to='/' className="nav-link">
+                        <NavLink to='/account' className="nav-link">
                             <i className="bi bi-person-circle"></i>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <NavLink to='/account' className="nav-link">
                             <i className="bi bi-info-circle-fill"></i>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>
@@ -74,7 +74,7 @@ const Navbar = () =>
                                     ACCOUNT
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="?">Ilham Prasetya</a></li>
+                                    <li><NavLink className="dropdown-item" to='/account'>Ilham Prasetya</NavLink></li>
                                     <li><a className="dropdown-item" href="?">Log Out</a></li>
                                 </ul>
                             </li>

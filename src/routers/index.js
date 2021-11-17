@@ -6,6 +6,7 @@ import History from "../pages/History/History";
 import Home from "../pages/Home/Home";
 import PersonalMessage from "../pages/Message/PersonalMessage";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
+import { PageConstruc } from "../pages/pageConstruction/PageConstruc";
 import PhoneBook from "../pages/PhoneBook/PhoneBook";
 const Router = () => {
   return (
@@ -29,6 +30,10 @@ const Router = () => {
       <Route exact path='/phonebook'>
         <Navbar />
         <PhoneBook />
+      </Route>
+      <Route exact path='/account'>
+        <Navbar />
+        <PageConstruc />
       </Route>
       <Route path='*'>
         <NotFoundPage />
