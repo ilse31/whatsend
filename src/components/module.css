@@ -8,6 +8,18 @@
   margin-right: 3em;
 }
 
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #1e2125;
+  background-color: #e9ecef;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #157347;
+}
+
 @media only screen and (max-width: 844px) {
   .nav-icon {
     width: 50px;
