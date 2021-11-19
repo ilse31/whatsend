@@ -10,19 +10,19 @@ const Navbar = () =>
             <nav className="navbar navbar-light bg-light border-top navbar-expand d-md-none d-lg-none d-xl-none fixed-bottom">
                 <ul className="navbar-nav nav-justified w-100">
                     <li className="nav-item">
-                        <a href="/" className="nav-link">
+                        <NavLink to='/' className="nav-link">
                             <i className="bi bi-house"></i>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a href="/personal-message" className="nav-link">
+                        <NavLink to="/personal-message" className="nav-link">
                             <i className="bi bi-chat-left-text-fill"></i>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a href="/broadcast" className="nav-link">
+                        <NavLink to="/broadcast" className="nav-link">
                             <i className="bi bi-broadcast"></i>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/history" className="nav-link">
