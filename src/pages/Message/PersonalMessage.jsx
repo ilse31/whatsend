@@ -9,14 +9,13 @@ const PersonalMessage = () =>
             <div className="row">
                 <form action="">
                     <div className="col-4">
-                        <label htmlFor="telp" class="form-label">No Telp</label>
+                        <label htmlFor="telp" className="form-label">No Telp</label>
                         <br />
                         <input
                             className='input-telp'
                             name='telp'
                             id='telp'
                             type="tel"
-                            roundedLeft="0"
                             minLength='12'
                             maxLength='13'
                             placeholder="6212345.."

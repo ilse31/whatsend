@@ -17,9 +17,9 @@ const PhoneBook = () =>
                                     <p>0898983904832482</p>
                                 </div>
                                 <div className="col-sm-3">
-                                    <i class="bi bi-pencil-square"></i>
-                                    <i class="bi bi-trash ms-3"></i>
-                                    <button className='btn btn-success ms-3'><i class="bi bi-chat-left-text-fill"></i> Send Messages</button>
+                                    <i className="bi bi-pencil-square"></i>
+                                    <i className="bi bi-trash ms-3"></i>
+                                    <button className='btn btn-success ms-3'><i className="bi bi-chat-left-text-fill"></i> Send Messages</button>
                                 </div>
                             </div>
                         </div>
@@ -32,9 +32,9 @@ const PhoneBook = () =>
                                     <p>0898983904832482</p>
                                 </div>
                                 <div className="col-sm-3">
-                                    <i class="bi bi-pencil-square"></i>
-                                    <i class="bi bi-trash ms-3"></i>
-                                    <button className='btn btn-success ms-3'><i class="bi bi-chat-left-text-fill"></i> Send Messages</button>
+                                    <i className="bi bi-pencil-square"></i>
+                                    <i className="bi bi-trash ms-3"></i>
+                                    <button className='btn btn-success ms-3'><i className="bi bi-chat-left-text-fill"></i> Send Messages</button>
                                 </div>
                             </div>
                         </div>
