@@ -75,7 +75,7 @@ const Navbar = () =>
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><NavLink className="dropdown-item" to='/account'>Ilham Prasetya</NavLink></li>
-                                    <li><a className="dropdown-item" href="?">Log Out</a></li>
+                                    <li><p className="dropdown-item">Log Out</p></li>
                                 </ul>
                             </li>
                         </ul>
