@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import phoneBook from '../../assets/icons/whh_phonebook.png'
+import PhoneNumber from '../../components/PhoneNumber'
 import './pm.css'
-
-
-
 
 const SubmitButton = ( props ) =>
 {
     if ( props.isLoading )
     {
         return (
-            <button className="btn btn-success" type="button">Sending . . .</button>
+            <button isLoading className="btn btn-success" type="button">Sending . . .</button>
         )
     }
     return (
         <button onClick={ props.handleClick } className="btn btn-success" type="button">Send</button>
     )
-
 }
-
-
-
-
-
 
 
 const PersonalMessage = ( props ) =>
@@ -37,8 +27,6 @@ const PersonalMessage = ( props ) =>
     } )
     const [ contact, setContact ] = useState( {} )
     const [ isNewNmber, setisNewNmber ] = useState( '' )
-
-
     useEffect( () =>
     {
         if ( props.location )
@@ -48,7 +36,6 @@ const PersonalMessage = ( props ) =>
             setPhone( props.location.state.number )
         }
     }, [ props.location ] )
-
     const handleChangeMessage = ( e ) =>
     {
         setMessages( e.target.value )
@@ -85,41 +72,35 @@ const PersonalMessage = ( props ) =>
         }, 2000 );
         e.preventDefault();
     }
-
-    const handleChangeNumber = () =>
+    const handleChangeNumberField = () =>
     {
         setisNewNmber( !isNewNmber )
     }
-
-
-
-
+    const handlerNuberChange = ( value ) =>
+    {
+        setPhoValidate( { isvalid: true, text: '' } )
+        setPhone( value )
+        if ( isNaN( Number( value ) ) )
+        {
+            setPhoValidate( { isvalid: false, text: 'Phone is inval' } )
+        }
+    }
 
     return (
         <div className='container p-4'>
             <div className="row">
                 <form action="">
-                    <div className="col-4">
-                        <label htmlFor="telp" className="form-label">No Telp</label>
-                        <br />
-                        <input
-                            className='input-telp'
-                            name='telp'
-                            id='telp'
-                            type="tel"
-                            minLength='12'
-                            maxLength='13'
-                            placeholder="6212345.."
-                        />
-                        <br />
-                        <div className='phone pb-3'>
-                            <NavLink className='phonebook' to='/phonebook'><img src={ phoneBook } className='phone-book' alt="" /> Phonebook</NavLink>
-                        </div>
-                    </div>
+
+                    <PhoneNumber
+                        newNumber={ isNewNmber }
+                        changeNumberField={ handleChangeNumberField }
+                        onNumberChange={ handlerNuberChange }
+                        contactData={ contact }
+                    />
                     <p>Using Personal Messages you can send message to unsaved number.</p>
-                    <textarea name="personal" className='form-control' id="" cols="100" rows="15" />
+                    <textarea name="personal" value={ messages } onChange={ handleChangeMessage } className='form-control' id="" cols="100" rows="15" />
                     <div className="d-grid gap-2 mt-3">
-                        <SubmitButton />
+                        <SubmitButton isLoading={ isLoading } handleClick={ sending } />
                     </div>
                 </form>
             </div>
