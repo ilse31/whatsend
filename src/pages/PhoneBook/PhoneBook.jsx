@@ -1,44 +1,43 @@
 
 import React from 'react'
+import Contact from '../../components/Contact'
 import Modals from '../../components/Modals'
 
 const PhoneBook = () =>
 {
+    const data = [
+        {
+            nama: 'Yoga',
+            phone: 24,
+
+        },
+        {
+            nama: 'Fahmi',
+            phone: 24,
+
+        },
+        {
+            nama: 'Ivan',
+            phone: 24,
+
+        },
+        {
+            nama: 'Fitri',
+            phone: 24,
+        }
+    ]
     return (
         <div className='container p-3'>
             <Modals />
             <div className="card shadow-lg">
                 <div className="card-body">
-                    <div className="card shadow mb-3">
-                        <div className="card-body">
-                            <div className="row justify-content-between">
-                                <div className="col-sm-7">
-                                    <p>Nama</p>
-                                    <p>0898983904832482</p>
-                                </div>
-                                <div className="col-sm-3">
-                                    <i className="bi bi-pencil-square"></i>
-                                    <i className="bi bi-trash ms-3"></i>
-                                    <button className='btn btn-success ms-3'><i className="bi bi-chat-left-text-fill"></i> Send Messages</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card shadow">
-                        <div className="card-body">
-                            <div className="row justify-content-between">
-                                <div className="col-sm-7">
-                                    <p>Nama</p>
-                                    <p>0898983904832482</p>
-                                </div>
-                                <div className="col-sm-3">
-                                    <i className="bi bi-pencil-square"></i>
-                                    <i className="bi bi-trash ms-3"></i>
-                                    <button className='btn btn-success ms-3'><i className="bi bi-chat-left-text-fill"></i> Send Messages</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    { data.map( ( item, index ) =>
+                        <Contact
+                            id={ index }
+                            nama={ item.nama }
+                            phone={ item.phone }
+                        />
+                    ) }
                 </div>
             </div>
         </div>
