@@ -11,9 +11,7 @@ function App() {
     setCurrentTheme(currentTheme === "dark" ? "light" : "dark");
   };
   const defaultTheme =
-    currentTheme === "dark"
-      ? "bg-dark text-white vh-100"
-      : "bg-white text-dark vh-100";
+    currentTheme === "dark" ? "bg-dark text-white" : "bg-white text-dark";
   return (
     <div className={`App ${defaultTheme}`}>
       <Navbar Theme={currentTheme} ThemeSwitch={handleClick} />

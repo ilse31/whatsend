@@ -4,7 +4,7 @@ const History = () =>
 {
     return (
         <div className='container p-3'>
-            <div className="row">
+            <div className="row vh-100">
                 <div className="col">
                     <p>Chat History</p>
                     <p>List your recent chat history</p>

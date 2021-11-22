@@ -5,7 +5,7 @@ const Home = () =>
 {
     return (
         <div className='container home p-3'>
-            <div className="row vh-100 align-items-center">
+            <div className="row align-items-center">
                 <div className="col-12 col-md-4">
                     <div className='banner'>
                         <h3 className='home-banner-title'>Mudah dengan Chat dan Broadcast</h3>

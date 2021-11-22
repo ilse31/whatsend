@@ -5,7 +5,7 @@ const Profile = () =>
 {
     return (
         <div className='container'>
-            <div className="row justify-content-center align-items-center vh-100">
+            <div className="row justify-content-center align-items-center">
                 <div className="col">
                     <div className="profile">
                         <img src={ profile } alt="" />
