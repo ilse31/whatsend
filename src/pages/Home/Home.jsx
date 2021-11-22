@@ -5,7 +5,7 @@ const Home = () =>
 {
     return (
         <div className='container home p-3'>
-            <div className="row align-items-center">
+            <div className="row vh-100 align-items-center">
                 <div className="col-12 col-md-4">
                     <div className='banner'>
                         <h3 className='home-banner-title'>Mudah dengan Chat dan Broadcast</h3>
@@ -13,7 +13,6 @@ const Home = () =>
                             Cocok untuk Event Organizer
                             Sangat cepat untuk mengingatkan Peserta
                         </h5>
-                        <button className='btn btn-outline-success learn-button'>Learn More</button>
                     </div>
                 </div>
                 <div className="col-12 col-md-4">
@@ -22,7 +21,7 @@ const Home = () =>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PhoneNumber from '../../components/PhoneNumber'
 import './pm.css'
 
+
 const SubmitButton = ( props ) =>
 {
     if ( props.isLoading )
@@ -11,7 +12,7 @@ const SubmitButton = ( props ) =>
         )
     }
     return (
-        <button onClick={ props.handleClick } className="btn btn-success" type="button">Send</button>
+        <button onClick={ props.handleClick } className="btn btn-success" type="submit">Send</button>
     )
 }
 
@@ -88,7 +89,7 @@ const PersonalMessage = ( props ) =>
 
     return (
         <div className='container p-4'>
-            <div className="row">
+            <div className="row vh-100">
                 <form action="">
                     <PhoneNumber
                         newNumber={ isNewNmber }

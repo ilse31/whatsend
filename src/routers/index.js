@@ -7,6 +7,7 @@ import PersonalMessage from "../pages/Message/PersonalMessage";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
 import PhoneBook from "../pages/PhoneBook/PhoneBook";
 import Profile from "../pages/Profile/Profile";
+
 const Router = () => {
   return (
     <Switch>
