@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import iconApps from '../assets/img/Group 2.png'
 import './module.css'
-const Navbar = () =>
+const Navbar = ( { Theme, ThemeSwitch } ) =>
 {
     if ( window.screen.width <= 844 )
     {
@@ -79,6 +79,10 @@ const Navbar = () =>
                                 </ul>
                             </li>
                         </ul>
+                        <label id="switch" className="switch">
+                            <input type="checkbox" defaultChecked={ true } onChange={ () => ThemeSwitch() } id="slider" />
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                 </div>
             </nav>

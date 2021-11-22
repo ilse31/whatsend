@@ -90,7 +90,6 @@ const PersonalMessage = ( props ) =>
         <div className='container p-4'>
             <div className="row">
                 <form action="">
-
                     <PhoneNumber
                         newNumber={ isNewNmber }
                         changeNumberField={ handleChangeNumberField }

@@ -1,10 +1,22 @@
+import { useRecoilState } from "recoil";
 import "./App.css";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import Router from "./routers/index";
+import theme from "./store/theme";
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useRecoilState(theme);
+  const handleClick = () => {
+    setCurrentTheme(currentTheme === "dark" ? "light" : "dark");
+  };
+  const defaultTheme =
+    currentTheme === "dark"
+      ? "bg-dark text-white vh-100"
+      : "bg-white text-dark vh-10";
   return (
     <div className='App'>
+      <Navbar />
       <Router />
       <Footer />
     </div>
