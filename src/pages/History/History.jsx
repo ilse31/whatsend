@@ -8,7 +8,7 @@ const History = () =>
                 <div className="col">
                     <p>Chat History</p>
                     <p>List your recent chat history</p>
-                    <div className="card shadow">
+                    <div className="card shadow text-black">
                         <div className="card-body">
                             <div className="row justify-content-between">
                                 <div className="col-sm-7">

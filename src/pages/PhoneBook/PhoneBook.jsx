@@ -29,7 +29,7 @@ const PhoneBook = () =>
     return (
         <div className='container p-3'>
             <Modals />
-            <div className="card shadow-lg">
+            <div className="card shadow-lg text-black">
                 <div className="card-body">
                     { data.map( ( item, index ) =>
                         <Contact
