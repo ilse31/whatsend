@@ -80,7 +80,7 @@ const Navbar = ( { Theme, ThemeSwitch } ) =>
                             </li>
                         </ul>
                         <label id="switch" className="switch">
-                            <input type="checkbox" defaultChecked={ true } onChange={ () => ThemeSwitch() } id="slider" />
+                            <input type="checkbox" defaultChecked={ Theme === 'dark' ? true : false } onChange={ () => ThemeSwitch() } id="slider" />
                             <span class="slider round"></span>
                         </label>
                     </div>

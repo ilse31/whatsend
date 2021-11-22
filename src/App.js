@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Router from "./routers/index";
-import theme from "./store/theme";
+import theme from "./store/theme/index.js";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
@@ -13,10 +13,10 @@ function App() {
   const defaultTheme =
     currentTheme === "dark"
       ? "bg-dark text-white vh-100"
-      : "bg-white text-dark vh-10";
+      : "bg-white text-dark vh-100";
   return (
-    <div className='App'>
-      <Navbar />
+    <div className={`App ${defaultTheme}`}>
+      <Navbar Theme={currentTheme} ThemeSwitch={handleClick} />
       <Router />
       <Footer />
     </div>
