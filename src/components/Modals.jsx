@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router'
 import phonebook from '../assets/icons/whh_phonebook.png'
 const Modals = () =>
 {
-    const history = useHistory()
     const baseData = {
         nama: "",
         phone: "",
@@ -106,15 +104,16 @@ const Modals = () =>
                 nama: baseData.nama,
                 phone: baseData.phone,
             }
+            localStorage.setItem( newData )
         }
     };
     return (
         <div>
-            <button type="button" className="btn mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src={ phonebook } style={ { width: '25px' } } alt="" /> Add Contact
             </button>
             <div className="modal fade" id="exampleModal" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-dialog modal-dialog-centered text-black">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Add Contact</h5>

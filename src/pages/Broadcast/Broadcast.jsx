@@ -4,7 +4,7 @@ const Broadcast = () =>
 {
     return (
         <div className='container p-3'>
-            <div className="row">
+            <div className="row vh-100">
                 <div className="col">
                     <form action="">
                         <p>Using Broadcast Messages you can send message to groups or Whatsapp contacts in bulk.</p>
