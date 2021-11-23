@@ -39,7 +39,7 @@ const PhoneBookNumber = ( { data, changeField } ) =>
     return (
         <div>
             <p>Send To=</p>
-            <p>{ data.name }{ data.number }</p>
+            <p>{ data.name } ({ data.number })</p>
             <Link onClick={ changeField } className='phonebook' to='/phonebook'><img src={ phoneBook } className='phone-book' alt="" /> Phonebook</Link>
         </div>
     )

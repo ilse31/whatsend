@@ -113,8 +113,10 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                             <button type="button" className="btn mb-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                 <i className="bi bi-pencil-square" ></i>
                             </button>
-                            <i className="bi bi-trash ms-3" onClick={ () => remove( data.number ) }></i>
-                            <Link className='btn btn-success ms-3' to={ { pathname: '/personal-message', state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
+                            <button type="button" className="btn mb-3 ms-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                <i className="bi bi-trash" onClick={ () => remove( data.number ) }></i>
+                            </button>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message', state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>
