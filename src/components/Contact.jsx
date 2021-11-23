@@ -106,8 +106,8 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                 <div className="card-body">
                     <div className="row justify-content-between">
                         <div className="col-sm-7">
-                            <p>{ data.name }</p>
-                            <p>{ data.number }</p>
+                            <p>😊 { data.name }</p>
+                            <p>📲{ data.number }</p>
                         </div>
                         <div className="col-sm-3">
                             <button type="button" className="btn mb-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">

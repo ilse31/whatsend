@@ -44,7 +44,7 @@ const PhoneBook = () =>
     }
     return (
         <div>
-            <div className='container p-3'>
+            <div className='container vh-100 p-3'>
                 <Modals
                     handleInit={ getInitialPhonebook }
                     data={ modalProps }

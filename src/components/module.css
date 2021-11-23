@@ -15,8 +15,8 @@
   color: #09a75d !important;
 }
 .footer {
-  position: absolute;
-  top: 110%;
+  position: relative;
+  top: 100;
   width: 100%;
   font-size: 18px;
 }
