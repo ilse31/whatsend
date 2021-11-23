@@ -83,7 +83,7 @@ const ModalsEdit = ( { handleInit, data, edit } ) =>
         <div>
             <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
             </button>
-            <div className="modal fade" id="exampleModal" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal1" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered text-black">
                     <div className="modal-content">
                         <div className="modal-header">
