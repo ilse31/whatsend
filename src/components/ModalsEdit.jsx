@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import phonebook from '../assets/icons/whh_phonebook.png'
-const Modals = ( { handleInit, data, edit } ) =>
+import React, { useEffect, useState } from 'react'
+const ModalsEdit = ( { handleInit, data, edit } ) =>
 {
     const [ name, setName ] = useState( '' )
     const [ number, setNumber ] = useState( '' )
@@ -8,6 +7,15 @@ const Modals = ( { handleInit, data, edit } ) =>
         isValid: true,
         text: ''
     } )
+
+    useEffect( () =>
+    {
+        if ( Object.keys( data ).length > 0 )
+        {
+            setName( data.name )
+            setNumber( data.number )
+        }
+    }, [ data ] )
     const handleClose = () =>
     {
         setName( '' )
@@ -73,8 +81,7 @@ const Modals = ( { handleInit, data, edit } ) =>
 
     return (
         <div>
-            <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src={ phonebook } style={ { width: '25px' } } alt="" /> Add Contact
+            <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
             </button>
             <div className="modal fade" id="exampleModal" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered text-black">
@@ -125,4 +132,4 @@ const Modals = ( { handleInit, data, edit } ) =>
     )
 }
 
-export default Modals
+export default ModalsEdit

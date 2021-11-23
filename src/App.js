@@ -1,6 +1,5 @@
 import { useRecoilState } from "recoil";
 import "./App.css";
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Router from "./routers/index";
 import theme from "./store/theme/index.js";
@@ -16,7 +15,6 @@ function App() {
     <div className={`App ${defaultTheme}`}>
       <Navbar Theme={currentTheme} ThemeSwitch={handleClick} />
       <Router />
-      <Footer />
     </div>
   );
 }
