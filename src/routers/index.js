@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Footer from "../components/Footer";
 import Broadcast from "../pages/Broadcast/Broadcast";
 import History from "../pages/History/History";
 import Home from "../pages/Home/Home";
@@ -16,15 +17,19 @@ const Router = () => {
       </Route>
       <Route exact path='/personal-message'>
         <PersonalMessage />
+        <Footer />
       </Route>
       <Route exact path='/broadcast'>
         <Broadcast />
+        <Footer />
       </Route>
       <Route exact path='/history'>
         <History />
+        <Footer />
       </Route>
       <Route exact path='/phonebook'>
         <PhoneBook />
+        <Footer />
       </Route>
       <Route exact path='/account'>
         <Profile />
