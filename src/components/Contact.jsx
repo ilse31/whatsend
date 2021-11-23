@@ -50,7 +50,9 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
         {
             if ( result )
             {
-                let idx = JSON.parse( result ).findIndex( el => el.number === Number( number ) )
+                let idx = JSON.parse( result ).findIndex(
+                    ( el ) => parseInt( el.number ) === parseInt( data.number )
+                );
                 if ( idx !== -1 )
                 {
                     initial = JSON.parse( result )
@@ -124,7 +126,7 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                 <div className="modal-dialog modal-dialog-centered text-black">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Add Contact</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Edit Contact</h5>
                             <button type="button" className="btn-close" onClick={ handleClose } data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body">
