@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
 {
 
-    //tes
+    // tesModal
     const [ name, setName ] = useState( '' )
     const [ number, setNumber ] = useState( '' )
     const [ phoneValidation, setPhoneValidation ] = useState( {
@@ -117,6 +117,8 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                     </div>
                 </div>
             </div>
+
+
             {/* modal */ }
             <div className="modal fade" id="exampleModal1" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered text-black">
@@ -163,6 +165,9 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                     </div>
                 </div>
             </div>
+
+
+            {/* endModal */ }
         </div >
     )
 }
