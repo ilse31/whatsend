@@ -9,13 +9,17 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import { Suspense } from "react";
+import client from "./store/apollo-client";
+import { ApolloProvider } from "@apollo/client";
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
       <Suspense fallback={<div>Loading</div>}>
         <BrowserRouter>
-          <App />
+          <ApolloProvider client={client}>
+            <App />
+          </ApolloProvider>
         </BrowserRouter>
       </Suspense>
     </RecoilRoot>
