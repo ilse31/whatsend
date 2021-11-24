@@ -1,5 +1,8 @@
-import { useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
+import { useEffect, useState } from 'react';
 import Contact from '../../components/Contact'
+import Modals from '../../components/Modals';
+import { insertData } from '../../graphql/Mutation';
 import { getDataAll } from '../../graphql/Query'
 
 
@@ -12,13 +15,53 @@ const PhoneBook = () =>
         loading: loadingAllData,
         error: errorAllData,
     } = useQuery( getDataAll );
+    const [ addData, { loading: addLoading } ] = useMutation( insertData, {
+        refetchQueries: [ getDataAll ],
+    } );
+    const [ phonebooks, setPhonebooks ] = useState( [] )
+    const [ modalProps, setModalProps ] = useState( {} )
+
+    const getInitialPhonebook = () =>
+    {
+        let initial = localStorage.getItem( 'phonebook' )
+        if ( initial )
+        {
+            let arrays = JSON.parse( initial )
+            setPhonebooks( arrays )
+        }
+    }
+    useEffect( () =>
+    {
+        getInitialPhonebook()
+    }, [] )
+
+
+    const tambahPengunjung = ( newUser ) =>
+    {
+        const newData = {
+            ...newUser,
+        };
+        addData( {
+            variables: {
+                object: {
+                    id: newData.id,
+                    name: newData.name,
+                    number: newData.number,
+                },
+            },
+        } );
+    };
+
     return (
         <div>
             <div className='container vh-100 p-3'>
-                {/* { console.log( id ) } */ }
+                <Modals
+                    tambahPengunjung={ tambahPengunjung }
+                    handleInit={ getInitialPhonebook }
+                    data={ modalProps }
+                />
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
-                        { console.log( allData ) }
                         { errorAllData && <p>Something Went Wrong...</p> }
                         { ( loadingAllData ) && <div className='center'>Loading data . . .</div> }
                         { !errorAllData && !loadingAllData && (

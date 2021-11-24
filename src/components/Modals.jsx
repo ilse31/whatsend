@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import phonebook from '../assets/icons/whh_phonebook.png'
-const Modals = ( { handleInit, data, edit } ) =>
+const Modals = ( { handleInit, data, tambahPengunjung } ) =>
 {
     const [ name, setName ] = useState( '' )
     const [ number, setNumber ] = useState( '' )
@@ -63,9 +63,10 @@ const Modals = ( { handleInit, data, edit } ) =>
                 number
             }
             initial.push( params )
-            console.log( params );
+            console.log( tambahPengunjung( params ) );
         }
         localStorage.setItem( 'phonebook', JSON.stringify( initial ) )
+        console.log( initial );
         handleInit()
         setName( '' )
         setNumber( '' )
