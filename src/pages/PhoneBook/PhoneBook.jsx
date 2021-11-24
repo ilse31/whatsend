@@ -1,7 +1,10 @@
 
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 import Contact from '../../components/Contact'
 import Modals from '../../components/Modals'
+
+
 
 
 const PhoneBook = () =>
@@ -18,6 +21,8 @@ const PhoneBook = () =>
             setModalProps( initial[ idx ] )
         }
     }
+    // let id = useParams();
+
     const getInitialPhonebook = () =>
     {
         let initial = localStorage.getItem( 'phonebook' )
@@ -29,6 +34,7 @@ const PhoneBook = () =>
     }
     useEffect( () =>
     {
+
         getInitialPhonebook()
     }, [] )
     const handleRemove = ( { number } ) =>
@@ -49,6 +55,7 @@ const PhoneBook = () =>
                     handleInit={ getInitialPhonebook }
                     data={ modalProps }
                 />
+                {/* { console.log( id ) } */ }
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
                         { phonebooks.map( ( item ) =>

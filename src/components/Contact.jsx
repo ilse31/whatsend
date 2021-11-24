@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
+const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
 {
 
     // tesModal
@@ -100,6 +100,8 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
         }
     }, [] )
 
+    // console.log( props );
+
     return (
         <div>
             <div className="card shadow mb-3">
@@ -116,7 +118,7 @@ const Contact = ( { data, handleRemove, handleInit, editItem } ) =>
                             <button type="button" className="btn mb-3 ms-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                 <i className="bi bi-trash" onClick={ () => remove( data.number ) }></i>
                             </button>
-                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message', state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/' + data.number, state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>

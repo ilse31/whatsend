@@ -29,6 +29,7 @@ const PersonalMessage = ( props ) =>
     const [ isNewNumber, setIsNewNumber ] = useState( true );
     const [ contact, setContact ] = useState( {} )
 
+    console.log( props );
     useEffect( () =>
     {
 
