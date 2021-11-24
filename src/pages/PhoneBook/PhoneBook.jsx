@@ -1,16 +1,42 @@
-
+import { useMutation, useQuery } from '@apollo/client'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
 import Contact from '../../components/Contact'
 import Modals from '../../components/Modals'
+import { insertData } from '../../graphql/Mutation'
+import { getData } from '../../graphql/Query'
 
 
 
 
 const PhoneBook = () =>
 {
+    const {
+        data: allData,
+        loading: loadingAllData,
+        error: errorAllData,
+        refetch,
+    } = useQuery( getData );
     const [ phonebooks, setPhonebooks ] = useState( [] )
     const [ modalProps, setModalProps ] = useState( {} )
+    const [ addData, { loading: addLoading } ] = useMutation( insertData, {
+        refetchQueries: [ getData ],
+    } );
+    const tambahPengunjung = ( newUser ) =>
+    {
+        const newData = {
+            ...newUser,
+        };
+        addData( {
+            variables: {
+                object: {
+                    id: newData.id,
+                    name: newData.name,
+                    number: newData.number
+                },
+            },
+        } );
+    };
+
     const handleEditModal = ( { number } ) =>
     {
         let initial = localStorage.getItem( 'phonebook' )
@@ -21,7 +47,6 @@ const PhoneBook = () =>
             setModalProps( initial[ idx ] )
         }
     }
-    // let id = useParams();
 
     const getInitialPhonebook = () =>
     {
@@ -58,15 +83,26 @@ const PhoneBook = () =>
                 {/* { console.log( id ) } */ }
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
-                        { phonebooks.map( ( item ) =>
+                        { console.log( tambahPengunjung ) }
+                        {/* { phonebooks.map( ( item ) =>
                             <Contact
                                 key={ item.number }
                                 data={ item }
                                 handleRemove={ handleRemove }
                                 handleInit={ getInitialPhonebook }
                                 editItem={ handleEditModal }
+                                tambahPengunjung={ tambahPengunjung }
                             />
-                        ) }
+                        ) } */}
+                        {
+                            <Contact
+                                data={ allData }
+                                handleRemove={ handleRemove }
+                                handleInit={ getInitialPhonebook }
+                                editItem={ handleEditModal }
+                                tambahPengunjung={ tambahPengunjung }
+                            />
+                        }
                     </div>
                 </div>
             </div>

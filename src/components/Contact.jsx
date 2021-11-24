@@ -12,14 +12,14 @@ const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
         text: ''
     } )
 
-    useEffect( () =>
-    {
-        if ( Object.keys( data ).length > 0 )
-        {
-            setName( data.name )
-            setNumber( data.number )
-        }
-    }, [ data ] )
+    // useEffect( () =>
+    // {
+    //     if ( Object.keys( data ).length > 0 )
+    //     {
+    //         setName( data.name )
+    //         setNumber( data.number )
+    //     }
+    // }, [ data ] )
     const handleClose = () =>
     {
         setName( '' )
@@ -77,8 +77,11 @@ const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
                 number
             }
             initial.push( params )
+            props.tambahPengunjung( params )
+            console.log( params );
         }
         localStorage.setItem( 'phonebook', JSON.stringify( initial ) )
+        console.log( initial );
         handleInit()
         setName( '' )
         setNumber( '' )
@@ -100,16 +103,14 @@ const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
         }
     }, [] )
 
-    // console.log( props );
-
     return (
         <div>
             <div className="card shadow mb-3">
                 <div className="card-body">
                     <div className="row justify-content-between">
                         <div className="col-sm-7">
-                            <p>😊 { data.name }</p>
-                            <p>📲{ data.number }</p>
+                            <p>😊 { name }</p>
+                            <p>📲{ number }</p>
                         </div>
                         <div className="col-sm-3">
                             <button type="button" className="btn mb-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">
@@ -118,12 +119,12 @@ const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
                             <button type="button" className="btn mb-3 ms-3 bg-white" onClick={ () => editItem( { number: data.number } ) } data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                 <i className="bi bi-trash" onClick={ () => remove( data.number ) }></i>
                             </button>
-                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/' + data.number, state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/', state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>
             </div>
-
+            { console.log() }
 
             {/* modal */ }
             <div className="modal fade" id="exampleModal1" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">

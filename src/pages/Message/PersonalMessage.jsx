@@ -30,16 +30,15 @@ const PersonalMessage = ( props ) =>
     const [ contact, setContact ] = useState( {} )
 
     console.log( props );
-    useEffect( () =>
-    {
-
-        if ( props.location )
-        {
-            setIsNewNumber( false )
-            setContact( props.location )
-            setPhone( props.location.state.number )
-        }
-    }, [ props.location ] )
+    // useEffect( () =>
+    // {
+    //     if ( props.location )
+    //     {
+    //         setIsNewNumber( false )
+    //         setContact( props.location )
+    //         setPhone( props.location.state.number )
+    //     }
+    // }, [ props.location ] )
 
     const handleChangeMessage = e => setMessages( e.target.value );
 
