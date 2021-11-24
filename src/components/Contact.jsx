@@ -9,6 +9,7 @@ const Contact = ( props ) =>
                 <ListContact
                     key={ item.id }
                     data={ item }
+                    handleRemove={ props.hapusContact }
                 />
             ) ) }
         </div >

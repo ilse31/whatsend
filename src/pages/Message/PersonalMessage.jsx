@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PhoneNumber from '../../components/PhoneNumber'
 import './pm.css'
 
@@ -27,7 +27,7 @@ const PersonalMessage = ( props ) =>
         text: ''
     } );
     const [ isNewNumber, setIsNewNumber ] = useState( true );
-    const [ contact, setContact ] = useState( {} )
+    const [ contact, ] = useState( {} )
 
     console.log( props );
     // useEffect( () =>
