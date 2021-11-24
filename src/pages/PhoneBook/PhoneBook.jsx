@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
 import Contact from '../../components/Contact'
 import Modals from '../../components/Modals'
 
