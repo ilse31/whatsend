@@ -49,7 +49,6 @@ const PhoneBook = () =>
                     handleInit={ getInitialPhonebook }
                     data={ modalProps }
                 />
-                { console.log( 'adwadp', modalProps ) }
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
                         { phonebooks.map( ( item ) =>

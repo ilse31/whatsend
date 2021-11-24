@@ -31,6 +31,7 @@ const PersonalMessage = ( props ) =>
 
     useEffect( () =>
     {
+
         if ( props.location )
         {
             setIsNewNumber( false )
@@ -82,7 +83,7 @@ const PersonalMessage = ( props ) =>
     {
         setPhoneValidation( { isValid: true, text: '' } );
         setPhone( value );
-        if ( isNaN( parseInt( value ) ) )
+        if ( isNaN( Number( value ) ) )
         {
             setPhoneValidation( { isValid: false, text: 'Phone number is invalid' } );
         }
