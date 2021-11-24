@@ -15,10 +15,6 @@ const Router = () => {
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route exact path='/personal-message/:id'>
-        <PersonalMessage />
-        <Footer />
-      </Route>
       <Route exact path='/personal-message/'>
         <PersonalMessage />
         <Footer />
