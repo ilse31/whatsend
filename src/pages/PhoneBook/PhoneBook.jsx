@@ -1,6 +1,6 @@
-import { useLazyQuery, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import Contact from '../../components/Contact'
-import { getById, getDataAll } from '../../graphql/Query'
+import { getDataAll } from '../../graphql/Query'
 
 
 
@@ -12,20 +12,6 @@ const PhoneBook = () =>
         loading: loadingAllData,
         error: errorAllData,
     } = useQuery( getDataAll );
-    const [ getData, { data: dataId, loading: loadId, errorId } ] =
-        useLazyQuery( getById );
-
-    if ( errorId )
-    {
-        console.log( errorId );
-        return null;
-    }
-
-    if ( loadId )
-    {
-        return "wait";
-    }
-
     return (
         <div>
             <div className='container vh-100 p-3'>
@@ -34,10 +20,10 @@ const PhoneBook = () =>
                     <div className="card-body">
                         { console.log( allData ) }
                         { errorAllData && <p>Something Went Wrong...</p> }
-                        { ( loadingAllData || loadId ) && <div className='center'>"wait"</div> }
-                        { !errorAllData && !loadingAllData && !loadId && (
+                        { ( loadingAllData ) && <div className='center'>Loading data . . .</div> }
+                        { !errorAllData && !loadingAllData && (
                             <Contact
-                                data={ dataId ? dataId?.phonebook : allData?.phonebook }
+                                data={ allData?.phonebook }
                             />
                         ) }
                     </div>

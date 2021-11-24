@@ -11,7 +11,6 @@ const Contact = ( props ) =>
                     data={ item }
                 />
             ) ) }
-
             {/* modal */ }
             <div className="modal fade" id="exampleModal1" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered text-black">

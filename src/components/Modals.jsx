@@ -63,6 +63,7 @@ const Modals = ( { handleInit, data, edit } ) =>
                 number
             }
             initial.push( params )
+            console.log( params );
         }
         localStorage.setItem( 'phonebook', JSON.stringify( initial ) )
         handleInit()

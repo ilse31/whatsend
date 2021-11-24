@@ -20,7 +20,7 @@ const ListContact = ( props ) =>
                             <button type="button" className="btn mb-3 ms-3 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                 <i className="bi bi-trash"></i>
                             </button>
-                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/' } }><i className="bi bi-chat-left-text-fill"></i>Send</Link>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/' } }><i className="bi bi-chat-left-text-fill"></i>Send Messages</Link>
                         </div>
                     </div>
                 </div>
