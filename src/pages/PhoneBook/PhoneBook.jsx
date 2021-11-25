@@ -72,10 +72,7 @@ const PhoneBook = () =>
     };
 
 
-    const handleDelete = () =>
-    {
-        localStorage.clear()
-    }
+
 
     return (
         <div>
@@ -85,7 +82,6 @@ const PhoneBook = () =>
                     handleInit={ getInitialPhonebook }
                     data={ modalProps }
                 />
-                <p onClick={ handleDelete } >Delete All</p>
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
                         { errorAllData && <p>Something Went Wrong...</p> }

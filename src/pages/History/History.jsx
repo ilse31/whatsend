@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 const History = () =>
 {
     const [ histories, setHistories ] = useState( [] )
-
     useEffect( () =>
     {
         let initial = localStorage.getItem( 'history' )
@@ -14,15 +13,25 @@ const History = () =>
         }
     }, [] )
 
+    const HandleDelete = () =>
+    {
+        if ( window.confirm( 'Are you sure want to delete all of your history?' ) )
+        {
+            localStorage.removeItem( 'history' )
+            setHistories( [] )
+        }
+    }
+
     return (
         <div className='container p-3'>
             <div className="row vh-100">
                 <div className="col">
                     <p>Chat History</p>
                     <p>List your recent chat history</p>
-                    { histories.map( items => (
-                        <div className="card shadow text-black mb-2">
-                            <div className="card-body">
+                    <button className='rounded-pill btn btn-success mb-3' onClick={ HandleDelete }>Delete All History</button>
+                    { histories.map( ( items, index ) => (
+                        <div className="card shadow text-black mb-2" key={ index }>
+                            <div className="card-body" >
                                 <div className="row justify-content-between">
                                     <div className="col-sm-7">
                                         <p>{ items.number }</p>
