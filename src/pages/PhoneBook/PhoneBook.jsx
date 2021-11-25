@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Contact from '../../components/Contact'
 import Modals from '../../components/Modals'
 
-
-
-
 const PhoneBook = () =>
 {
     const [ phonebooks, setPhonebooks ] = useState( [] )
@@ -57,15 +54,23 @@ const PhoneBook = () =>
                 {/* { console.log( id ) } */ }
                 <div className="card shadow-lg text-black">
                     <div className="card-body">
-                        { phonebooks.map( ( item ) =>
-                            <Contact
-                                key={ item.number }
-                                data={ item }
-                                handleRemove={ handleRemove }
-                                handleInit={ getInitialPhonebook }
-                                editItem={ handleEditModal }
-                            />
-                        ) }
+                        {
+                            phonebooks.length > 0 ?
+                                phonebooks.map( el =>
+                                {
+                                    return (
+                                        <Contact
+                                            key={ el.number }
+                                            data={ el }
+                                            handleRemove={ handleRemove }
+                                            handleInit={ getInitialPhonebook }
+                                            editModal={ handleEditModal }
+                                        />
+                                    )
+                                } ) : (
+                                    'we are sve tour data in localStorage'
+                                )
+                        }
                     </div>
                 </div>
             </div>

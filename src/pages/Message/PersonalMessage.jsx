@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 import PhoneNumber from '../../components/PhoneNumber'
 import './pm.css'
 
@@ -19,6 +20,7 @@ const SubmitButton = ( props ) =>
 
 const PersonalMessage = ( props ) =>
 {
+    const { id } = useParams()
     const [ phone, setPhone ] = useState( '' );
     const [ messages, setMessages ] = useState( '' );
     const [ isLoading, setIsLoading ] = useState( false );
@@ -29,14 +31,13 @@ const PersonalMessage = ( props ) =>
     const [ isNewNumber, setIsNewNumber ] = useState( true );
     const [ contact, setContact ] = useState( {} )
 
-    console.log( props );
+    console.log( contact );
     useEffect( () =>
     {
-
         if ( props.location )
         {
             setIsNewNumber( false )
-            setContact( props.location )
+            setContact( props.location.state )
             setPhone( props.location.state.number )
         }
     }, [ props.location ] )

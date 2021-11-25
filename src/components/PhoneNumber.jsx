@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import phoneBook from '../assets/icons/whh_phonebook.png'
 
 const InputNumber = ( { onNumberChange } ) =>
@@ -36,12 +36,13 @@ const InputNumber = ( { onNumberChange } ) =>
 
 const PhonebookNumber = ( { data, changeField } ) =>
 {
+    console.log( 'ini data', data.name );
     return (
         <div>
             <p>Send To:</p>
             <p>{ data.name } ({ data.number })</p>
-            <Link onClick={ changeField } className='phonebook' to='/phonebook'><img src={ phoneBook } className='phone-book' alt="" />  Input new number</Link>
-        </div>
+            <p onClick={ changeField } className='phonebook'><img src={ phoneBook } className='phone-book' alt="" />  Input new number</p>
+        </div >
     )
 }
 
