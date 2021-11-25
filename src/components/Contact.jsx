@@ -10,6 +10,8 @@ const Contact = ( props ) =>
                     key={ item.id }
                     data={ item }
                     handleRemove={ props.hapusContact }
+                    editItem={ props.edit }
+                    handleInit={ props.init }
                 />
             ) ) }
         </div >

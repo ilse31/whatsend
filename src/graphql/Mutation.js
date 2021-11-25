@@ -17,4 +17,15 @@ const DeleteData = gql`
   }
 `;
 
-export { insertData, DeleteData };
+const updateData = gql`
+  mutation MyMutation($name: String!, $id: Int!, $number: bigint!) {
+    update_phonebook(
+      where: { id: { _eq: $id } }
+      _set: { name: $name, number: $number }
+    ) {
+      affected_rows
+    }
+  }
+`;
+
+export { insertData, DeleteData, updateData };

@@ -5,6 +5,9 @@ import Modals from '../../components/Modals';
 import { DeleteData, insertData } from '../../graphql/Mutation';
 import { getDataAll } from '../../graphql/Query'
 
+
+
+
 const PhoneBook = () =>
 {
     const {
@@ -19,7 +22,20 @@ const PhoneBook = () =>
         refetchQueries: [ getDataAll ],
     } );
     const [ , setPhonebooks ] = useState( [] )
-    const [ modalProps, ] = useState( {} )
+    const [ modalProps, setModalProps ] = useState( {} )
+
+    const handleEditModal = ( { id } ) =>
+    {
+        let initial = localStorage.getItem( 'phonebook' )
+        initial = JSON.parse( initial )
+        let idx = initial.findIndex( el => el.number === id )
+        console.log( idx );
+        if ( idx !== -1 )
+        {
+            setModalProps( initial[ idx ] )
+        }
+    }
+
 
     const getInitialPhonebook = () =>
     {
@@ -45,6 +61,7 @@ const PhoneBook = () =>
         let initial = localStorage.getItem( 'phonebook' )
         initial = JSON.parse( initial )
         let idx = initial.findIndex( el => el.number === id )
+        console.log( idx );
         if ( idx === -1 )
         {
             initial.splice( idx, 1 )
@@ -88,6 +105,8 @@ const PhoneBook = () =>
                             <Contact
                                 data={ allData?.phonebook }
                                 hapusContact={ DeleteContact }
+                                edit={ handleEditModal }
+                                init={ getInitialPhonebook }
                             />
                         ) }
                     </div>

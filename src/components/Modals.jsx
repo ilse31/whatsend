@@ -109,7 +109,7 @@ const Modals = ( { handleInit, data, tambahPengunjung } ) =>
                                     name="number"
                                     value={ number }
                                     onChange={ handleNumberChange }
-                                    placeholder="08573890xxxxx"
+                                    placeholder="628573890xxxxx"
                                 />
                                 { phoneValidation.isValid ? '' : ( <span className='error'>{ phoneValidation.text }</span> ) }
                             </div>
