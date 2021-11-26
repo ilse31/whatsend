@@ -128,7 +128,7 @@ const ListContact = ( props ) =>
                             <button type="button" className="btn mb-3 ms-3 bg-white" name='delete'>
                                 <i className="bi bi-trash" onClick={ () => props.handleRemove( id ) }></i>
                             </button>
-                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: `personal-message/${ props.data.number }/`, state: props.data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: `personal-message/`, state: props.data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>

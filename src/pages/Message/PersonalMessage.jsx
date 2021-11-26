@@ -30,19 +30,19 @@ const PersonalMessage = ( props ) =>
         text: ''
     } );
     const [ isNewNumber, setIsNewNumber ] = useState( true );
-    const [ contact, ] = useState( {} )
+    const [ contact, setContact ] = useState( {} )
 
     // console.log( props );
     useEffect( () =>
     {
         setPhone( id )
-        // if ( props.location.state )
-        // {
-        //     setIsNewNumber( false )
-        //     setContact( props.location.state )
-        //     setPhone( props.location.state.number )
-        // }
-    }, [ id ] )
+        if ( props.location.state )
+        {
+            setIsNewNumber( false )
+            setContact( props.location.state )
+            setPhone( props.location.state.number )
+        }
+    }, [ id, props.location.state ] )
 
     const handleChangeMessage = e => setMessages( e.target.value );
 
