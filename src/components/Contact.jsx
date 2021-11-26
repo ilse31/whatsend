@@ -119,7 +119,7 @@ const Contact = ( { data, handleRemove, handleInit, editItem }, props ) =>
                                 <i className="bi bi-trash" onClick={ () => remove( data.number ) }></i>
                             </button>
                             { console.log( data ) }
-                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: '/personal-message/', state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: `personal-message/${ data.number }`, state: data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>

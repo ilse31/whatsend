@@ -31,21 +31,27 @@ const PersonalMessage = ( props ) =>
     const [ isNewNumber, setIsNewNumber ] = useState( true );
     const [ contact, setContact ] = useState( {} )
 
-    console.log( contact );
     useEffect( () =>
     {
-        if ( props.location )
+        if ( phone === null && id !== null )
         {
-            setIsNewNumber( false )
-            setContact( props.location.state )
-            setPhone( props.location.state.number )
+            setPhone( id )
         }
-    }, [ props.location ] )
+        console.log( phone );
+        // if ( props.location )
+        // {
+        //     setIsNewNumber( false )
+        //     setContact( props.location.state )
+        //     setPhone( props.location.state.number )
+        // }
+    }, [] )
 
     const handleChangeMessage = e => setMessages( e.target.value );
 
     const sending = e =>
     {
+        e.preventDefault()
+        console.log( phone );
         if ( !phoneValidation.isValid )
         {
             return false;
@@ -95,11 +101,13 @@ const PersonalMessage = ( props ) =>
         <div className='container p-4'>
             <div className="row vh-100">
                 <form action="">
+                    { console.log( id ) }
                     <PhoneNumber
                         newNumber={ isNewNumber }
                         changeNumberField={ handleChangeNumberField }
                         onNumberChange={ handleNumberChange }
                         contactData={ contact }
+                        id={ id }
                     />
                     {
                         phoneValidation.isValid ? '' : ( <span className='error'>{ phoneValidation.text }</span> )
