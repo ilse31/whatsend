@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import useDocumentTitle from '../../store/useDocumentTitle'
 
 const History = () =>
 {
+    useDocumentTitle( 'Whatshy | History' )
     const [ histories, setHistories ] = useState( [] )
     useEffect( () =>
     {
@@ -15,11 +18,44 @@ const History = () =>
 
     const HandleDelete = () =>
     {
-        if ( window.confirm( 'Are you sure want to delete all of your history?' ) )
+        const swalWithBootstrapButtons = Swal.mixin( {
+            customClass: {
+                confirmButton: 'btn btn-danger ms-2',
+                cancelButton: 'btn btn-secondary ms-2'
+            },
+            buttonsStyling: false
+        } )
+
+        swalWithBootstrapButtons.fire( {
+            title: 'want to delete all of your history ?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        } ).then( ( result ) =>
         {
-            localStorage.removeItem( 'history' )
-            setHistories( [] )
-        }
+            if ( result.isConfirmed )
+            {
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your history has been deleted.',
+                    'success',
+                )
+                localStorage.removeItem( 'history' )
+                setHistories( [] )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            )
+            {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your history chat is safe :)',
+                    'error'
+                )
+            }
+        } )
     }
 
     return (

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 import PhoneNumber from '../../components/PhoneNumber'
 import './pm.css'
-
+import useDocumentTitle from '../../store/useDocumentTitle'
 
 const SubmitButton = ( props ) =>
 {
@@ -19,6 +20,8 @@ const SubmitButton = ( props ) =>
 
 const PersonalMessage = ( props ) =>
 {
+    useDocumentTitle( 'Whatshy | Personal Messages' )
+    const { id } = useParams()
     const [ phone, setPhone ] = useState( '' );
     const [ messages, setMessages ] = useState( '' );
     const [ isLoading, setIsLoading ] = useState( false );
@@ -29,16 +32,17 @@ const PersonalMessage = ( props ) =>
     const [ isNewNumber, setIsNewNumber ] = useState( true );
     const [ contact, ] = useState( {} )
 
-    console.log( props );
-    // useEffect( () =>
-    // {
-    //     if ( props.location )
-    //     {
-    //         setIsNewNumber( false )
-    //         setContact( props.location )
-    //         setPhone( props.location.state.number )
-    //     }
-    // }, [ props.location ] )
+    // console.log( props );
+    useEffect( () =>
+    {
+        setPhone( id )
+        // if ( props.location.state )
+        // {
+        //     setIsNewNumber( false )
+        //     setContact( props.location.state )
+        //     setPhone( props.location.state.number )
+        // }
+    }, [ id ] )
 
     const handleChangeMessage = e => setMessages( e.target.value );
 
@@ -94,6 +98,7 @@ const PersonalMessage = ( props ) =>
             <div className="row vh-100">
                 <form action="">
                     <PhoneNumber
+                        id={ id }
                         newNumber={ isNewNumber }
                         changeNumberField={ handleChangeNumberField }
                         onNumberChange={ handleNumberChange }

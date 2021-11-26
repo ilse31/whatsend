@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import phoneBook from '../assets/icons/whh_phonebook.png'
 
-const InputNumber = ( { onNumberChange } ) =>
+const InputNumber = ( { onNumberChange, id } ) =>
 {
-    const [ number, setNumber ] = useState( '' )
+    const [ , setNumber ] = useState( '' )
     const handleNumberChange = ( e ) =>
     {
         let value = e.target.value
@@ -22,7 +22,7 @@ const InputNumber = ( { onNumberChange } ) =>
                 type="telp"
                 minLength='12'
                 maxLength='13'
-                value={ number }
+                value={ id }
                 onChange={ handleNumberChange }
                 placeholder="6212345.."
             />
@@ -51,12 +51,13 @@ const PhoneNumber = ( {
     newNumber,
     changeNumberField,
     onNumberChange,
-    contactData
+    contactData,
+    id
 } ) =>
 {
     if ( newNumber )
     {
-        return <InputNumber onNumberChange={ onNumberChange } />
+        return <InputNumber id={ id } onNumberChange={ onNumberChange } />
     } else
     {
         return <PhonebookNumber data={ contactData } changeField={ changeNumberField } />

@@ -1,5 +1,6 @@
 import { useMutation } from '@apollo/client';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { updateData } from '../graphql/Mutation';
 import { getDataAll } from '../graphql/Query';
 
@@ -18,6 +19,15 @@ const ListContact = ( props ) =>
         text: ''
     } )
 
+    const [ isTextShowed, setIsTextShowed ] = useState( true )
+    useEffect( () =>
+    {
+        let width = window.innerWidth
+        if ( width < 500 )
+        {
+            setIsTextShowed( false )
+        }
+    }, [] )
 
     const handleClose = () =>
     {
@@ -112,12 +122,13 @@ const ListContact = ( props ) =>
                             <p>📲{ number }</p>
                         </div>
                         <div className="col-sm-3">
-                            <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" onClick={ () => props.editItem( id ) } data-bs-target="#exampleModal1">
+                            <button type="button" className="btn mb-3 bg-white" data-bs-toggle="modal" onClick={ () => props.editItem( id ) } data-bs-target={ `#modal${ id }` }>
                                 <i className="bi bi-pencil-square" ></i>
                             </button>
                             <button type="button" className="btn mb-3 ms-3 bg-white" name='delete'>
                                 <i className="bi bi-trash" onClick={ () => props.handleRemove( id ) }></i>
                             </button>
+                            <Link className='btn btn-success ms-3 mb-3' to={ { pathname: `personal-message/${ props.data.number }/`, state: props.data } }><i className="bi bi-chat-left-text-fill"></i>{ isTextShowed ? ' Send Message' : '' }</Link>
                         </div>
                     </div>
                 </div>
@@ -125,10 +136,8 @@ const ListContact = ( props ) =>
 
 
 
-
-
             {/* modal */ }
-            <div className="modal fade" id="exampleModal1" tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={ `modal${ id }` } tabIndex={ -1 } aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered text-black">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -163,7 +172,7 @@ const ListContact = ( props ) =>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" onClick={ handleClose } data-bs-dismiss="modal">Close</button>
-                                <button type="submit" onClick={ save } className="btn text-white px-4 mt-2 btn-success">
+                                <button type="submit" onClick={ save } data-bs-dismiss="modal" className="btn text-white px-4 mt-2 btn-success">
                                     Submit
                                 </button>
                             </div>

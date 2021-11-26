@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import useDocumentTitle from '../../store/useDocumentTitle'
 
 const Broadcast = () =>
 {
+    useDocumentTitle( 'Whatshy | Broadcast' )
     const [ messages, setMessages ] = useState( '' )
     const [ loading, setLoading ] = useState( false )
     const handleChageMessage = ( e ) =>
