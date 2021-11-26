@@ -34,9 +34,6 @@ const PersonalMessage = ( props ) =>
         name: '',
         number: ''
     } )
-
-    console.log( props.location );
-
     useEffect( () =>
     {
         if ( numbers && names )
