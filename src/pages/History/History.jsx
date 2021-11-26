@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import useDocumentTitle from '../../store/useDocumentTitle'
+import Fade from 'react-reveal/Fade';
 
 const History = () =>
 {
@@ -62,8 +63,10 @@ const History = () =>
         <div className='container p-3'>
             <div className="row vh-100">
                 <div className="col">
-                    <p>Chat History</p>
-                    <p>List your recent chat history</p>
+                    <Fade left cascade>
+                        <p>Chat History</p>
+                        <p>List your recent chat history</p>
+                    </Fade>
                     <button className='rounded-pill btn btn-success mb-3' onClick={ HandleDelete }>Delete All History</button>
                     { histories.map( ( items, index ) => (
                         <div className="card shadow text-black mb-2" key={ index }>
