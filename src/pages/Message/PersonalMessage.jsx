@@ -33,11 +33,7 @@ const PersonalMessage = ( props ) =>
 
     useEffect( () =>
     {
-        if ( phone === null && id !== null )
-        {
-            setPhone( id )
-        }
-        console.log( phone );
+        setPhone( id )
         // if ( props.location )
         // {
         //     setIsNewNumber( false )
@@ -51,7 +47,6 @@ const PersonalMessage = ( props ) =>
     const sending = e =>
     {
         e.preventDefault()
-        console.log( phone );
         if ( !phoneValidation.isValid )
         {
             return false;
