@@ -2,9 +2,11 @@ import React from 'react'
 import './home.css'
 import bannerHome from '../../assets/img/chat-animate.svg'
 import Fade from 'react-reveal/Fade';
+import useDocumentTitle from '../../store/useDocumentTitle';
 
 const Home = () =>
 {
+    useDocumentTitle( 'Whatshy' )
     return (
         <div className='container home p-3'>
             <div className="row vh-100 align-items-center">
