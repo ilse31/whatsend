@@ -36,13 +36,13 @@ const PersonalMessage = ( props ) =>
     useEffect( () =>
     {
         setPhone( id )
-        if ( props.location.state )
+        if ( props.location )
         {
             setIsNewNumber( false )
-            setContact( props.location.state )
+            setContact( props.location )
             setPhone( props.location.state.number )
         }
-    }, [ id, props.location.state ] )
+    }, [ id, props.location ] )
 
     const handleChangeMessage = e => setMessages( e.target.value );
 
