@@ -7,12 +7,11 @@ const PhoneNumber = ( {
     changeNumberField,
     onNumberChange,
     contactData,
-    id
 } ) =>
 {
     if ( newNumber )
     {
-        return <InputNumber id={ id } onNumberChange={ onNumberChange } />
+        return <InputNumber onNumberChange={ onNumberChange } />
     } else
     {
         return <PhonebookNumber data={ contactData } changeField={ changeNumberField } />

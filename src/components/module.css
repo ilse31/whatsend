@@ -26,7 +26,9 @@
   width: 0;
   height: 0;
 }
-
+.borders {
+  border: 1px #09a75d;
+}
 /* The slider */
 .slider {
   position: absolute;

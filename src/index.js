@@ -14,7 +14,7 @@ import { ApolloProvider } from "@apollo/client";
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <Suspense fallback={<div>Loading</div>}>
+      <Suspense fallback={setTimeout(() => "Loading . .  .", 3000)}>
         <BrowserRouter>
           <ApolloProvider client={client}>
             <App />

@@ -21,7 +21,7 @@ const InputNumber = ( { onNumberChange, id } ) =>
                 type="telp"
                 minLength='12'
                 maxLength='13'
-                value={ id }
+                value={ number }
                 onChange={ handleNumberChange }
                 placeholder="6212345.."
             />

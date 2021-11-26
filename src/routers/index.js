@@ -15,10 +15,10 @@ const Router = () => {
       <Route exact path='/'>
         <Home />
       </Route>
-      {/* <Route exact path='/personal-message/:id'>
+      <Route exact path='/personal-message/:numbers/:names'>
         <PersonalMessage />
         <Footer />
-      </Route> */}
+      </Route>
       <Route exact path='/personal-message/'>
         <PersonalMessage />
         <Footer />

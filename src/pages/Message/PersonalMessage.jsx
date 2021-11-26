@@ -21,7 +21,7 @@ const SubmitButton = ( props ) =>
 const PersonalMessage = ( props ) =>
 {
     useDocumentTitle( 'Whatshy | Personal Messages' )
-    const { id } = useParams()
+    const { numbers, names } = useParams()
     const [ phone, setPhone ] = useState( '' );
     const [ messages, setMessages ] = useState( '' );
     const [ isLoading, setIsLoading ] = useState( false );
@@ -30,20 +30,26 @@ const PersonalMessage = ( props ) =>
         text: ''
     } );
     const [ isNewNumber, setIsNewNumber ] = useState( true );
-    const [ contact, setContact ] = useState( {} )
+    const [ contact, setContact ] = useState( {
+        name: '',
+        number: ''
+    } )
 
-    // console.log( props );
+    console.log( props.location );
+
     useEffect( () =>
     {
-        setPhone( id )
-        if ( props.location )
+        if ( numbers && names )
         {
+            setPhone( numbers )
             setIsNewNumber( false )
-            setContact( props.location )
-            setPhone( props.location.state.number )
+            setContact( {
+                name: names,
+                number: numbers
+            } )
         }
-    }, [ id, props.location ] )
-
+    }, [ names, numbers ] )
+    console.log( phone );
     const handleChangeMessage = e => setMessages( e.target.value );
 
     const sending = e =>
@@ -98,7 +104,6 @@ const PersonalMessage = ( props ) =>
             <div className="row vh-100">
                 <form action="">
                     <PhoneNumber
-                        id={ id }
                         newNumber={ isNewNumber }
                         changeNumberField={ handleChangeNumberField }
                         onNumberChange={ handleNumberChange }
