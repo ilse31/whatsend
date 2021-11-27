@@ -1,20 +1,58 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './login.css'
 import sideBannerLogin from '../../assets/img/amico.png'
-import googleIcons from '../../assets/icons/flat-color-icons_google.png'
-import FacebookIcons from '../../assets/icons/fb.png'
+import GoogleLogin from 'react-google-login'
+import { useHistory } from 'react-router'
+import { useRecoilState } from 'recoil'
+import { CheckAuth } from '../../store/users'
+
 
 const Login = () =>
 {
+    const [ auth, setAuth ] = useRecoilState( CheckAuth )
+    const history = useHistory()
+    const [ data, setData ] = useState( '' )
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const responseGoogle = ( useCallback( ( res ) =>
+    {
+        console.log( res );
+        setData( res.profileObj )
+        setTimeout( () =>
+        {
+            history.push( '/' )
+        }, 55 );
+    } ) )
+    useEffect( () =>
+    {
+        if ( data )
+        {
+            setAuth( {
+                check: true,
+                user: data.name,
+                imgUrl: data.imageUrl
+            } )
+        }
+    }, [ auth, data, setAuth ] )
+    const failResponse = () =>
+    {
+        console.log( 'error' );
+    }
     return (
         <div className='login-page'>
             <div className="container">
                 <div className="row vh-100 justify-content-center align-items-center">
                     <div className="col">
                         <h2 className='title-apps'>Whats'Send</h2>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-outline-success login-button text-success" type="button"><img src={ googleIcons } className='icon-login' alt="" /> Login With Google</button>
-                            <button class="btn btn-outline-success login-button text-success" type="button"><img src={ FacebookIcons } className='icon-login' alt="" /> Login With Facebook</button>
+                        <div className="d-grid gap-2">
+                            <div className="login-button text-success">
+                                <GoogleLogin
+                                    clientId='180360695-uptib69ch610ar2k5u50uasdbmocdbhc.apps.googleusercontent.com'
+                                    onSuccess={ responseGoogle }
+                                    onFailure={ failResponse }
+                                    cookiePolicy={ 'single_host_origin' }
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="col">

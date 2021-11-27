@@ -46,7 +46,6 @@ const PersonalMessage = ( props ) =>
             } )
         }
     }, [ names, numbers ] )
-    console.log( phone );
     const handleChangeMessage = e => setMessages( e.target.value );
 
     const sending = e =>

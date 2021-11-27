@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
 import iconApps from '../assets/img/Group 2.png'
+import { CheckAuth } from '../store/users'
 import './module.css'
 const Navbar = ( { Theme, ThemeSwitch } ) =>
 {
+    const auth = useRecoilValue( CheckAuth )
     if ( window.screen.width <= 844 )
     {
         return (
@@ -73,10 +76,14 @@ const Navbar = ( { Theme, ThemeSwitch } ) =>
                                 <a className="nav-link dropdown-toggle" href="?" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ACCOUNT
                                 </a>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><NavLink className="dropdown-item" to='/account'>Ilham Prasetya</NavLink></li>
-                                    <li><p className="dropdown-item">Log Out</p></li>
-                                </ul>
+                                { auth.check ? (
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><NavLink className="dropdown-item" to='/account'>{ auth.user }</NavLink></li>
+                                        <li><p className="dropdown-item">Log Out</p></li>
+                                    </ul> ) : (
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a className="dropdown-item" href='/login'>Login</a></li>
+                                    </ul> ) }
                             </li>
                         </ul>
                         <label id="switch" className="switch">

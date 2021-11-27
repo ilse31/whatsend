@@ -5,6 +5,11 @@
 .title-name {
   margin-left: 40px;
 }
+.img-profile {
+  margin-top: 50px;
+  margin-left: 75px;
+  border-radius: 20px;
+}
 .profile-button {
   position: relative;
   margin-right: 33em !important;
