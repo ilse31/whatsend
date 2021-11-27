@@ -11,6 +11,7 @@ const Login = () =>
 {
     const [ auth, setAuth ] = useRecoilState( CheckAuth )
     const history = useHistory()
+    const [ token, setToken ] = useState( '' )
     const [ data, setData ] = useState( '' )
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -18,6 +19,7 @@ const Login = () =>
     {
         console.log( res );
         setData( res.profileObj )
+        setToken( res.tokenId )
         setTimeout( () =>
         {
             history.push( '/' )
@@ -30,10 +32,11 @@ const Login = () =>
             setAuth( {
                 check: true,
                 user: data.name,
-                imgUrl: data.imageUrl
+                imgUrl: data.imageUrl,
+                tokenId: token,
             } )
         }
-    }, [ auth, data, setAuth ] )
+    }, [ auth, data, setAuth, token ] )
     const failResponse = () =>
     {
         console.log( 'error' );

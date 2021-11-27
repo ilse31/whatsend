@@ -1,12 +1,25 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import iconApps from '../assets/img/Group 2.png'
 import { CheckAuth } from '../store/users'
 import './module.css'
 const Navbar = ( { Theme, ThemeSwitch } ) =>
 {
     const auth = useRecoilValue( CheckAuth )
+    const [ , setauthUsers ] = useRecoilState( CheckAuth )
+
+    const handleClick = () =>
+    {
+        setauthUsers( {
+            check: false,
+            user: '',
+            imgUrl: '',
+            tokenId: '',
+        } )
+        localStorage.removeItem( 'recoil-persist' )
+    }
+
     if ( window.screen.width <= 844 )
     {
         return (
@@ -79,7 +92,7 @@ const Navbar = ( { Theme, ThemeSwitch } ) =>
                                 { auth.check ? (
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><NavLink className="dropdown-item" to='/account'>{ auth.user }</NavLink></li>
-                                        <li><p className="dropdown-item">Log Out</p></li>
+                                        <li><p className="dropdown-item" onClick={ handleClick }>Log Out</p></li>
                                     </ul> ) : (
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><NavLink className="dropdown-item" to='/login'>Login</NavLink></li>
