@@ -82,7 +82,7 @@ const Navbar = ( { Theme, ThemeSwitch } ) =>
                                         <li><p className="dropdown-item">Log Out</p></li>
                                     </ul> ) : (
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a className="dropdown-item" href='/login'>Login</a></li>
+                                        <li><NavLink className="dropdown-item" to='/login'>Login</NavLink></li>
                                     </ul> ) }
                             </li>
                         </ul>
