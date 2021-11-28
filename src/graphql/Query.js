@@ -8,14 +8,4 @@ const getDataAll = gql`
     }
   }
 `;
-const getById = gql`
-  query MyQuery($id: Int!) {
-    phonebook(where: { id: { _eq: $id } }) {
-      id
-      jeniskelamin
-      nama
-      umur
-    }
-  }
-`;
-export { getDataAll, getById };
+export { getDataAll };
