@@ -50,11 +50,6 @@ const Navbar = ( { Theme, ThemeSwitch } ) =>
                             <i className="bi bi-person-circle"></i>
                         </NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink to='/account' className="nav-link">
-                            <i className="bi bi-info-circle-fill"></i>
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         )
